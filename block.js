@@ -1,10 +1,9 @@
-var hash = require('object-hash');
-var block = function (data) {
-    const currentBlockHash = hash(data);
+var block = function (blockStuff) {
+    const blockData = blockStuff;
 
     return {
-        getHash: function () {
-            return currentBlockHash;
+        getBlockData: function () {
+            return blockData;
         }
     }
 };

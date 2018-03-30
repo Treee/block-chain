@@ -1,25 +1,32 @@
 var Block = require('./block');
 var BlockChain = require('./block-chain');
-var hash = require('object-hash');
+var BlockData = require('./block-data');
+var ohash = require('object-hash');
 
 var genesisData = 'This is my very first block';
-//console.log(hash(genesisData));
-
-
-var genesisBlock = new Block('This is my very first block');
+var genesisBlockData = new BlockData(ohash(genesisData), genesisData);
+var genesisBlock = new Block(genesisBlockData);
 var blockChain = new BlockChain(genesisBlock);
 
-var blockInput = {
-    previousHash: blockChain.getCurrentHash(),
-    data: 'my second block'
-};
-blockChain.addNewBlock(new Block(blockInput));
+blockChain.addNewBlock('some block data');
+blockChain.addNewBlock({ objectVariableOne: 'some text', objectVariableTwo: 42, objectVariableThree: false });
+blockChain.addNewBlock('the data we add is irrelevant');
+blockChain.addNewBlock(null);
+blockChain.addNewBlock('even no data works');
+blockChain.printOutBlockChain();
 
-blockInput = {
-    previousHash: blockChain.getCurrentHash(),
-    data: 'my third block'
-};
-blockChain.addNewBlock(new Block(blockInput));
+console.log('\n\n');
 
 
-var blokeChain = new BlockChain(new Block('some dude'));
+genesisData = 'This is my very first block';
+genesisBlockData = new BlockData(ohash(genesisData), genesisData);
+genesisBlock = new Block(genesisBlockData);
+blockChain = new BlockChain(genesisBlock);
+
+
+blockChain.addNewBlock('watch how modifying something earlier in the block chain, affects everything down the line. even when data is almost the same');
+blockChain.addNewBlock({ objectVariableOne: 'some text', objectVariableTwo: 42, objectVariableThree: false });
+blockChain.addNewBlock('the data we add is irrelevant');
+blockChain.addNewBlock(null);
+blockChain.addNewBlock('even no data works');
+blockChain.printOutBlockChain();
