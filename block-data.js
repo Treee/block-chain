@@ -1,13 +1,9 @@
-var blockData = function (hash, data) {
-    const blockHash = hash;
-    const blockData = data;
+'use scrict'
+
+var blockData = function (data) {
+    var blockData = data;
     return {
-        getHash: function () {
-            return blockHash;
-        },
-        getData: function () {
-            return blockData;
-        }
+        blockData
     }
 }
 module.exports = blockData;
