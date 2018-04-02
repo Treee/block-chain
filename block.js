@@ -1,18 +1,18 @@
 'use strict';
-
+// import the object hash library from npm (npm install object-hash)
 const hashingFunction = require('object-hash');
 
-//imutable block
+// imutable block
 const block = function (previousBlocksHash, data) {
 
     const blockData = data;
     const currentHash = hashingFunction([previousBlocksHash, blockData]);
 
     return {
-        getBlockData: function () {
+        getData: function () {
             return blockData;
         },
-        getBlockHash: function(){
+        getHash: function () {
             return currentHash;
         }
     }

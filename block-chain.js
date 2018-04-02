@@ -1,6 +1,5 @@
 'use scrict'
 
-var ohash = require('object-hash');
 var Block = require('./block');
 var BlockData = require('./block-data');
 
@@ -12,38 +11,38 @@ var blockchain = function (genesisBlock) {
     blocks[numberOfBlocks] = genesisBlock;
 
     //private functions
-    function createNewBlockFromData (data) {
+    function createNewBlockFromData(data) {
         var newBlockData = new BlockData(data);
-        var newBlock = new Block(blocks[numberOfBlocks].getBlockHash(), newBlockData);
+        var newBlock = new Block(blocks[numberOfBlocks].getHash(), newBlockData);
         numberOfBlocks++;
         blocks[numberOfBlocks] = newBlock;
     };
 
-    function addNewValidBlock (block) {
+    function addNewValidBlock(block) {
         numberOfBlocks++;
         blocks[numberOfBlocks] = block;
     };
 
-    function print(){
+    function print() {
         for (var index = 0; index < numberOfBlocks + 1; index++) {
             var block = blocks[index];
-            var blockData = block.getBlockData();
-            console.log(`Block #${index} has a hash of ${block.getBlockHash()} with data: ${JSON.stringify(blockData)}`);
+            var blockData = block.getData();
+            console.log(`Block #${index} has a hash of ${block.getHash()} with data: ${JSON.stringify(blockData)}`);
         }
     };
 
     //public function
     return {
-        addBlock: function(block){
+        addBlock: function (block) {
             addNewValidBlock(block);
         },
-        addNewBlock: function (data) { //consider renaming this to createBlockFromData
+        createBlockFromData: function (data) {
             createNewBlockFromData(data);
         },
         getCurrentHash: function () {
-            return blocks[numberOfBlocks].getBlockHash();
+            return blocks[numberOfBlocks].getHash();
         },
-        getLength: function(){
+        getLength: function () {
             return numberOfBlocks;
         },
         printOutBlockChain: function () {

@@ -8,11 +8,11 @@ var genesisBlockData = new BlockData(ohash(genesisData), genesisData);
 var genesisBlock = new Block(genesisBlockData);
 var blockChain = new BlockChain(genesisBlock);
 
-blockChain.addNewBlock('some block data');
-blockChain.addNewBlock({ objectVariableOne: 'some text', objectVariableTwo: 42, objectVariableThree: false });
-blockChain.addNewBlock('the data we add is irrelevant');
-blockChain.addNewBlock(null);
-blockChain.addNewBlock('even no data works');
+blockChain.createBlockFromData({ objectVariableOne: 'some text', objectVariableTwo: 42, objectVariableThree: false });
+blockChain.createBlockFromData('the data we add is irrelevant');
+blockChain.createBlockFromData(null);
+blockChain.createBlockFromData('even no data works');
+blockChain.createBlockFromData('some block data');
 blockChain.printOutBlockChain();
 
 console.log('\n\n');
@@ -24,9 +24,9 @@ genesisBlock = new Block(genesisBlockData);
 blockChain = new BlockChain(genesisBlock);
 
 
-blockChain.addNewBlock('watch how modifying something earlier in the block chain, affects everything down the line. even when data is almost the same');
-blockChain.addNewBlock({ objectVariableOne: 'some text', objectVariableTwo: 42, objectVariableThree: false });
-blockChain.addNewBlock('the data we add is irrelevant');
-blockChain.addNewBlock(null);
-blockChain.addNewBlock('even no data works');
+blockChain.createBlockFromData({ objectVariableOne: 'some text', objectVariableTwo: 42, objectVariableThree: false });
+blockChain.createBlockFromData('the data we add is irrelevant');
+blockChain.createBlockFromData(null);
+blockChain.createBlockFromData('even no data works');
+blockChain.createBlockFromData('watch how modifying something earlier in the block chain, affects everything down the line. even when data is almost the same');
 blockChain.printOutBlockChain();
