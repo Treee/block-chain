@@ -10,9 +10,10 @@
 ## Linux
 - cd ~/block-chain
 
-- Run the command `npm start`
+Run the command `npm start`
 
-- Expect the output seen below
+Expect the output seen below
+
 Block #0 has a hash of 644d9239acd3a377d480ef2f7b60caf9fd6571f6 with data: undefined
 Block #1 has a hash of 3748753435d576b1ab5438ac8fe60da8c901da3d with data: {"blockData":{"objectVariableOne":"sometext","objectVariableTwo":42,"objectVariableThree":false}}
 Block #2 has a hash of 6a001170ff25d1ad2b8c0865c75be352aa737824 with data: {"blockData":"the data we add is irrelevant"}
