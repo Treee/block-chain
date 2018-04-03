@@ -10,6 +10,7 @@
 ## Linux
 - cd ~/block-chain
 
+Run the command `npm install`
 Run the command `npm start`
 
 Expect the output seen below
