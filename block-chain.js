@@ -24,11 +24,11 @@ var blockchain = function (genesisBlock) {
     };
 
     function print() {
+        console.log('=====BlockChain Start=====');
         for (var index = 0; index < numberOfBlocks + 1; index++) {
-            var block = blocks[index];
-            var blockData = block.getData();
-            console.log(`Block #${index} has a hash of ${block.getHash()} with data: ${JSON.stringify(blockData)}`);
+            blocks[index].print();
         }
+        console.log('=====BlockChain End=======');
     };
 
     //public function

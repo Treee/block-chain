@@ -14,6 +14,9 @@ const block = function (previousBlocksHash, data) {
         },
         getHash: function () {
             return currentHash;
+        },
+        print: function () {
+            console.log(`Hash: ${currentHash} Data: ${JSON.stringify(blockData)}`);
         }
     }
 };
