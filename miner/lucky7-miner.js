@@ -5,9 +5,9 @@ const BlockChain = require('../block-chain');
 const BlockData = require('../block-data');
 const Block = require('../block');
 
-var dogMiner = function (genesisData) {
-    const hashPattern = 'd06';
-    const numberOfPatternGroupsToMatch = 1;
+var lucky7Miner = function (genesisData) {
+    const hashPattern = '7';
+    const numberOfPatternGroupsToMatch = 3;
     const regex = new RegExp(`^(${hashPattern}){${numberOfPatternGroupsToMatch}}`, 'gm');
 
     const genesisBlockData = new BlockData(genesisData);
@@ -53,10 +53,10 @@ var dogMiner = function (genesisData) {
         mineSomeBlocks: function (numberOfBlocks) {
             mineNumberOfBlocks(numberOfBlocks);
         },
-        printDogChain: function () {
+        printLucky7Chain: function () {
             blockChain.printOutBlockChain();
         }
     };
 }
 
-module.exports = dogMiner;
+module.exports = lucky7Miner;

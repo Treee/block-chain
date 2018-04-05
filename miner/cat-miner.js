@@ -7,8 +7,8 @@ const Block = require('../block');
 
 var catMiner = function (genesisData) {
     const hashPattern = 'ca7';
-    const numberOfCatGroups = 1;
-    const regex = new RegExp(`^(${hashPattern}){${numberOfCatGroups}}`, 'gm');
+    const numberOfPatternGroupsToMatch = 1;
+    const regex = new RegExp(`^(${hashPattern}){${numberOfPatternGroupsToMatch}}`, 'gm');
 
     const genesisBlockData = new BlockData(genesisData);
     const genesisBlock = new Block(hashingFunction(genesisData), genesisBlockData);
