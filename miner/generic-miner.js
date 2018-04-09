@@ -60,10 +60,10 @@ var genericMiner = function (genesisData, patternToMatch, numberOfGroupsToMatch,
         let blockHash = '';
         while (!isValidHash(blockHash)) {
             blockHash = generateNewHash(currentBlockChainHash, blockData);
-            if (numberOfAttempts % 100000 === 0) {
-                console.log(`Mining... nonce: ${blockData.nonce}`);
-            }
-            numberOfAttempts++;
+            // if (numberOfAttempts % 100000 === 0) {
+            //     console.log(`Mining... nonce: ${blockData.nonce}`);
+            // }
+            // numberOfAttempts++;
         }
     }
 
