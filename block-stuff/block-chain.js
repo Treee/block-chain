@@ -6,8 +6,8 @@ var BlockData = require('./block-data');
 var blockchain = function (genesisBlock) {
 
     //private variables
-    var numberOfBlocks = 0;
     var blocks = {};
+    var numberOfBlocks = 0;
     blocks[numberOfBlocks] = genesisBlock;
 
     //private functions
@@ -43,7 +43,8 @@ var blockchain = function (genesisBlock) {
             return blocks[numberOfBlocks].getHash();
         },
         getLength: function () {
-            return numberOfBlocks;
+            // we add 1 because we really started at 0
+            return numberOfBlocks + 1;
         },
         printOutBlockChain: function () {
             print();

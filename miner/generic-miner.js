@@ -56,14 +56,9 @@ var genericMiner = function (genesisData, patternToMatch, numberOfGroupsToMatch,
 
     // Hash until a valid hash is found
     function findValidHash(currentBlockChainHash, blockData) {
-        let numberOfAttempts = 0;
         let blockHash = '';
         while (!isValidHash(blockHash)) {
             blockHash = generateNewHash(currentBlockChainHash, blockData);
-            // if (numberOfAttempts % 100000 === 0) {
-            //     console.log(`Mining... nonce: ${blockData.nonce}`);
-            // }
-            // numberOfAttempts++;
         }
     }
 
@@ -90,6 +85,9 @@ var genericMiner = function (genesisData, patternToMatch, numberOfGroupsToMatch,
         },
         printGenericChain: function () {
             blockChain.printOutBlockChain();
+        },
+        getGenericChain: function () {
+            return blockChain;
         }
     };
 };

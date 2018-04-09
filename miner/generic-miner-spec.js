@@ -33,5 +33,22 @@ describe('Generic Miner', () => {
             expect(actual.getHash()).toEqual(expectedHash);
             expect(actual.getData()).toEqual(blockData);
         });
+
+        it('returns a valid block', () => {
+            let testData = 'test block data';
+            const actual = genericMiner.mineNextBlock(testData);
+            expect(actual.getHash().substring(0, 2)).toEqual('88');
+            testData = 'modified input';
+            const actual1 = genericMiner.mineNextBlock(testData);
+            expect(actual1.getHash().substring(0, 2)).toEqual('88');
+        });
+    });
+
+    describe('getGenericChain', () => {
+        it('returns the blockchain', () => {
+            const actual = genericMiner.getGenericChain();
+            expect(actual.getCurrentHash()).toEqual(genesisBlockHash);
+            expect(actual.getLength()).toBe(1);
+        });
     });
 });
