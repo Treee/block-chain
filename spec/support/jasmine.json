@@ -1,7 +1,8 @@
 {
   "spec_dir": "",
   "spec_files": [
-    "miner/*[sS]pec.js"
+    "miner/*[sS]pec.js",
+    "block-stuff/*[sS]pec.js"
   ],
   "helpers": [
     "helpers/**/*.js"

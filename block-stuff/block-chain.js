@@ -1,4 +1,4 @@
-'use scrict'
+'use scrict';
 
 var Block = require('./block');
 var BlockData = require('./block-data');
@@ -16,12 +16,12 @@ var blockchain = function (genesisBlock) {
         var newBlock = new Block(blocks[numberOfBlocks].getHash(), newBlockData);
         numberOfBlocks++;
         blocks[numberOfBlocks] = newBlock;
-    };
+    }
 
     function addNewValidBlock(block) {
         numberOfBlocks++;
         blocks[numberOfBlocks] = block;
-    };
+    }
 
     function print() {
         console.log('=====BlockChain Start=====');
@@ -29,7 +29,7 @@ var blockchain = function (genesisBlock) {
             blocks[index].print();
         }
         console.log('=====BlockChain End=======');
-    };
+    }
 
     //public function
     return {

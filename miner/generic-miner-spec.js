@@ -1,6 +1,6 @@
 const GenericMiner = require('./generic-miner');
-const Block = require('../block');
-const BlockData = require('../block-data');
+const Block = require('../block-stuff/block');
+const BlockData = require('../block-stuff/block-data');
 const hash = require('object-hash');
 describe('Generic Miner', () => {
     let genericMiner, genesisBlockHash;

@@ -1,9 +1,9 @@
 'use strict';
 
 const hashingFunction = require('object-hash');
-const BlockChain = require('../block-chain');
-const BlockData = require('../block-data');
-const Block = require('../block');
+const BlockChain = require('../block-stuff/block-chain');
+const BlockData = require('../block-stuff/block-data');
+const Block = require('../block-stuff/block');
 
 // Create a new object that is able to mine whatever you want with any mining strategy.
 // GenesisData: Any data. normally seed data or inaugural mesage

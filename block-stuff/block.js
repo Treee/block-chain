@@ -18,7 +18,7 @@ const block = function (previousBlocksHash, data) {
         print: function () {
             console.log(`Hash: ${currentHash} Data: ${JSON.stringify(blockData)}`);
         }
-    }
+    };
 };
 
 module.exports = block;
