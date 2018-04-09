@@ -1,24 +1,21 @@
 'use strict'
 
-var CatMiner = require('./cat-miner');
-var DogMiner = require('./dog-miner');
-var Lucky7Miner = require('./lucky7-miner');
 var GenericMiner = require('./generic-miner');
 var hashingFunction = require('object-hash');
 
-// var catMiner = new CatMiner('Cat miner seed data for genesis block');
-// catMiner.mineSomeBlocks(15);
-// catMiner.printCatChain();
+var genericCatMiner = new GenericMiner('Cat miner seed data', 'ca7', 1);
+genericCatMiner.mineSomeBlocks(5);
+genericCatMiner.printGenericChain();
 
-// var dogMiner = new DogMiner('Dog mining says its better than cat miner genesis');
-// dogMiner.mineSomeBlocks(10);
-// dogMiner.printDogChain();
+var genericDogMiner = new GenericMiner('Dog miner seed data', 'd06', 1);
+genericDogMiner.mineSomeBlocks(5);
+genericDogMiner.printGenericChain();
 
-// var luckyMiner = new Lucky7Miner('Luckiest mining chain');
-// luckyMiner.mineSomeBlocks(10);
-// luckyMiner.printLucky7Chain();
+var genericCasinoMiner = new GenericMiner('Luckiest Mining Chain', '7', 3);
+genericCasinoMiner.mineSomeBlocks(5);
+genericCasinoMiner.printGenericChain();
 
-var genericMiner = new GenericMiner('generic data', 'ac', 1, (currentBlockChainHash, blockData) => {
+var genericMiner = new GenericMiner('generic data', '0', 3, (currentBlockChainHash, blockData) => {
     blockData.nonce = blockData.nonce + Math.round((Math.random() * 100));
     let blockHash = hashingFunction([currentBlockChainHash, blockData]);
     return blockHash;
