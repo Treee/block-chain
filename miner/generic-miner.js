@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const hashingFunction = require('object-hash');
 const BlockChain = require('../block-chain');
@@ -34,7 +34,7 @@ var genericMiner = function (genesisData, patternToMatch, numberOfGroupsToMatch,
 
     // Generate a new hash given the current hash and any block data (if any)
     function generateNewHash(currentBlockChainHash, blockData) {
-        let newHash = defaultGenerateNewHash(currentBlockChainHash, blockData)
+        let newHash = defaultGenerateNewHash(currentBlockChainHash, blockData);
         // check to see if we have a custom mining strategy
         if (!!customMiningFunction) {
             // if we do, use it
@@ -46,13 +46,13 @@ var genericMiner = function (genesisData, patternToMatch, numberOfGroupsToMatch,
     // Mine the next valid block given some data (if any)
     function mineNextValidBlock(data) {
         const blockData = new BlockData(data);
-        blockData['nonce'] = 0;
+        blockData.nonce = 0;
         const currentBlockChainHash = blockChain.getCurrentHash();
         findValidHash(currentBlockChainHash, blockData);
         const nextBlock = new Block(currentBlockChainHash, blockData);
         blockChain.addBlock(nextBlock);
         return nextBlock;
-    };
+    }
 
     // Hash until a valid hash is found
     function findValidHash(currentBlockChainHash, blockData) {
@@ -92,6 +92,6 @@ var genericMiner = function (genesisData, patternToMatch, numberOfGroupsToMatch,
             blockChain.printOutBlockChain();
         }
     };
-}
+};
 
 module.exports = genericMiner;
