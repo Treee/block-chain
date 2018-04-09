@@ -6,11 +6,10 @@ var BlockData = require('./block-data');
 var blockchain = function (genesisBlock) {
 
     //private variables
-    var blocks = {};
-    var numberOfBlocks = 0;
+    let blocks = {};
+    let numberOfBlocks = 0;
     blocks[numberOfBlocks] = genesisBlock;
 
-    //private functions
     function createNewBlockFromData(data) {
         var newBlockData = new BlockData(data);
         var newBlock = new Block(blocks[numberOfBlocks].getHash(), newBlockData);
@@ -21,6 +20,18 @@ var blockchain = function (genesisBlock) {
     function addNewValidBlock(block) {
         numberOfBlocks++;
         blocks[numberOfBlocks] = block;
+    }
+
+    function getBlockOffBlockChain(blockHash) {
+        let block = null;
+        let totalNumberOfBlocks = numberOfBlocks + 1;
+        for (let i = 0; i < totalNumberOfBlocks; i++) {
+            if (blocks[i].getHash() === blockHash) {
+                block = blocks[i];
+                break;
+            }
+        }
+        return block;
     }
 
     function print() {
@@ -41,6 +52,9 @@ var blockchain = function (genesisBlock) {
         },
         getCurrentHash: function () {
             return blocks[numberOfBlocks].getHash();
+        },
+        getBlock: function (blockHash) {
+            return getBlockOffBlockChain(blockHash);
         },
         getLength: function () {
             // we add 1 because we really started at 0

@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js",
-    "blockchain-example": "node ./index.js",
+    "blockchain-example": "node block-stuff/block-chain-example.js",
     "mining-rig": "node miner/mining-rig.js",
     "test": "jasmine"
   },
